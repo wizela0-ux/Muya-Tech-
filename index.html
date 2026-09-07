@@ -242,7 +242,6 @@
       color: #94a3b8;
     }
 
-    /* 6-DIGIT OTP BOX STYLING */
     .otp-container {
       display: flex;
       justify-content: space-between;
@@ -404,7 +403,7 @@
         <p class="brand-subtitle">እንኳን ወደ ሙያ-ቴክ የአገልግሎት መፈለጊያ እና መስጫ አፕሊኬሽን በደህና መጡ</p>
       </header>
 
-      <form onsubmit="handleLoginSubmit(event)">
+      <form id="loginForm">
         <div class="input-group">
           <label class="input-label">ኢሜይል ወይም ስልክ ቁጥር</label>
           <input type="text" id="loginContactInput" class="input-field" placeholder="example@gmail.com ወይም 09..." required>
@@ -414,7 +413,7 @@
           <label class="input-label">የይለፍ ቃል (Password)</label>
           <div class="input-wrapper">
             <input type="password" id="loginPasswordInput" class="input-field" placeholder="••••••••" required>
-            <button type="button" class="toggle-password-btn" onclick="togglePasswordVisibility('loginPasswordInput', this)">👁️</button>
+            <button type="button" class="toggle-password-btn" id="btnToggleLoginPass">👁️</button>
           </div>
         </div>
 
@@ -423,18 +422,18 @@
 
       <div class="divider">ወይም በሶሻል ሚዲያ ይግቡ</div>
 
-      <button class="social-btn" onclick="handleSocial('Google')">
+      <button type="button" class="social-btn" id="btnLoginGoogle">
         <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
         <span>Continue with Google</span>
       </button>
 
-      <button class="social-btn" onclick="handleSocial('Telegram')">
+      <button type="button" class="social-btn" id="btnLoginTelegram">
         <svg width="18" height="18" fill="#24A1DE" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-2.01 9.48c-.15.68-.55.84-1.12.52l-3.08-2.27-1.48 1.43c-.16.16-.3.3-.62.3l.22-3.12 5.68-5.13c.25-.22-.05-.34-.38-.12l-7.02 4.42-3.03-.95c-.66-.21-.67-.66.14-.98l11.83-4.56c.55-.2 1.03.13.85.98z"/></svg>
         <span>Continue with Telegram</span>
       </button>
 
       <div class="footer-text">
-        Don't have an account? <a href="#" onclick="showView('signupRoleView')">Sign Up</a>
+        Don't have an account? <a href="#" id="linkToSignup">Sign Up</a>
       </div>
     </div>
 
@@ -446,7 +445,7 @@
       </header>
 
       <div class="role-stacked-container">
-        <div class="role-btn-stacked" onclick="chooseRole('Client')">
+        <div class="role-btn-stacked" id="roleBtnClient">
           <div class="role-btn-left">
             <div class="role-btn-icon">👤</div>
             <div class="role-btn-text">
@@ -457,7 +456,7 @@
           <div style="color: #38bdf8;">➔</div>
         </div>
 
-        <div class="role-btn-stacked" onclick="chooseRole('Craftsman')">
+        <div class="role-btn-stacked" id="roleBtnCraftsman">
           <div class="role-btn-left">
             <div class="role-btn-icon">🛠️</div>
             <div class="role-btn-text">
@@ -470,7 +469,7 @@
       </div>
 
       <div class="footer-text">
-        አካውንት አለዎት? <a href="#" onclick="showView('loginView')">Login ያድርጉ</a>
+        አካውንት አለዎት? <a href="#" id="linkToLogin">Login ያድርጉ</a>
       </div>
     </div>
 
@@ -481,12 +480,12 @@
         <p class="brand-subtitle" id="authRoleTitle">የአካውንት ምዝገባ</p>
       </header>
 
-      <button class="social-btn" onclick="handleSocialSignUp('Google')">
+      <button type="button" class="social-btn" id="btnSignupGoogle">
         <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
         <span>Sign Up with Google</span>
       </button>
 
-      <button class="social-btn" onclick="handleSocialSignUp('Telegram')">
+      <button type="button" class="social-btn" id="btnSignupTelegram">
         <svg width="18" height="18" fill="#24A1DE" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-2.01 9.48c-.15.68-.55.84-1.12.52l-3.08-2.27-1.48 1.43c-.16.16-.3.3-.62.3l.22-3.12 5.68-5.13c.25-.22-.05-.34-.38-.12l-7.02 4.42-3.03-.95c-.66-.21-.67-.66.14-.98l11.83-4.56c.55-.2 1.03.13.85.98z"/></svg>
         <span>Sign Up with Telegram</span>
       </button>
@@ -502,7 +501,7 @@
       <!-- Invisible reCAPTCHA Container -->
       <div id="recaptcha-container"></div>
 
-      <button class="btn-primary" id="btnSendOtp" onclick="sendOTP()">ኦቲፒ (OTP) ላክ</button>
+      <button type="button" class="btn-primary" id="btnSendOtp">ኦቲፒ (OTP) ላክ</button>
 
       <!-- 6-DIGIT OTP SECTION -->
       <div id="otpSection" style="display: none; background: rgba(56, 189, 248, 0.05); border: 1px dashed rgba(56, 189, 248, 0.3); border-radius: 14px; padding: 16px; margin: 16px 0;">
@@ -511,12 +510,12 @@
         </label>
 
         <div class="otp-container">
-          <input type="text" class="otp-box" id="otp1" maxlength="1" onkeydown="handleOtpKey(event, '', 'otp2')" oninput="autoMoveOtp('otp1', 'otp2')">
-          <input type="text" class="otp-box" id="otp2" maxlength="1" onkeydown="handleOtpKey(event, 'otp1', 'otp3')" oninput="autoMoveOtp('otp2', 'otp3')">
-          <input type="text" class="otp-box" id="otp3" maxlength="1" onkeydown="handleOtpKey(event, 'otp2', 'otp4')" oninput="autoMoveOtp('otp3', 'otp4')">
-          <input type="text" class="otp-box" id="otp4" maxlength="1" onkeydown="handleOtpKey(event, 'otp3', 'otp5')" oninput="autoMoveOtp('otp4', 'otp5')">
-          <input type="text" class="otp-box" id="otp5" maxlength="1" onkeydown="handleOtpKey(event, 'otp4', 'otp6')" oninput="autoMoveOtp('otp5', 'otp6')">
-          <input type="text" class="otp-box" id="otp6" maxlength="1" onkeydown="handleOtpKey(event, 'otp5', '')" oninput="autoMoveOtp('otp6', ''); verifyOTP();">
+          <input type="text" class="otp-box" id="otp1" maxlength="1">
+          <input type="text" class="otp-box" id="otp2" maxlength="1">
+          <input type="text" class="otp-box" id="otp3" maxlength="1">
+          <input type="text" class="otp-box" id="otp4" maxlength="1">
+          <input type="text" class="otp-box" id="otp5" maxlength="1">
+          <input type="text" class="otp-box" id="otp6" maxlength="1">
         </div>
         <div id="otpError" class="error-msg" style="text-align: center;">⚠️ የተሳሳተ OTP ኮድ ያስገቡት!</div>
       </div>
@@ -531,7 +530,7 @@
           <label class="input-label">Enter New Password</label>
           <div class="input-wrapper">
             <input type="password" id="newPassInput" class="input-field" placeholder="ቢያንስ 8 ፊደላት/ቁጥሮች" required>
-            <button type="button" class="toggle-password-btn" onclick="togglePasswordVisibility('newPassInput', this)">👁️</button>
+            <button type="button" class="toggle-password-btn" id="btnToggleNewPass">👁️</button>
           </div>
         </div>
 
@@ -539,15 +538,15 @@
           <label class="input-label">Re-enter New Password</label>
           <div class="input-wrapper">
             <input type="password" id="rePassInput" class="input-field" placeholder="ድጋሚ ፓስወርድ ያስገቡ" required>
-            <button type="button" class="toggle-password-btn" onclick="togglePasswordVisibility('rePassInput', this)">👁️</button>
+            <button type="button" class="toggle-password-btn" id="btnToggleRePass">👁️</button>
           </div>
           <div id="passError" class="error-msg">⚠️ ፓስወርዶቹ አይመሳሰሉም ወይም ከ8 ፊደላት ያነሱ ናቸው!</div>
         </div>
 
-        <button class="btn-primary" onclick="validateAndProceedToProfile()">ወደ ፕሮፋይል መሙያ ቀጥል</button>
+        <button type="button" class="btn-primary" id="btnProceedToProfile">ወደ ፕሮፋይል መሙያ ቀጥል</button>
       </div>
 
-      <button class="btn-secondary" onclick="resetAndBackToRoles()">ተመለስ</button>
+      <button type="button" class="btn-secondary" id="btnBackToRoles">ተመለስ</button>
     </div>
 
     <!-- VIEW 4: SIGN UP - STEP 3 (Profile Fields) -->
@@ -606,7 +605,7 @@
 
       <div class="input-group">
         <label class="input-label">1. ክልል ይምረጡ (Region)</label>
-        <select class="select-field" id="regionSelect" onchange="handleRegionChange()">
+        <select class="select-field" id="regionSelect">
           <option value="">-- ክልል ይምረጡ --</option>
           <option value="addis_ababa">አዲስ አበባ</option>
           <option value="central_ethiopia">ማዕከላዊ ኢትዮጵያ</option>
@@ -618,7 +617,7 @@
 
       <div class="input-group">
         <label class="input-label">2. ዞን / ክፍለ ከተማ (Zone / Sub-city)</label>
-        <select class="select-field" id="zoneSelect" disabled onchange="handleZoneChange()">
+        <select class="select-field" id="zoneSelect" disabled>
           <option value="">-- አስቀድመው ክልል ይምረጡ --</option>
         </select>
       </div>
@@ -632,8 +631,8 @@
 
       <div id="profileError" class="error-msg" style="margin-bottom: 10px;">⚠️ እባክዎን ሁሉንም አስፈላጊ መረጃዎች በትክክል ይሙሉ!</div>
 
-      <button class="btn-primary" onclick="validateAndProceedToPhoto()">ቀጥል (የፕሮፋይል ፎቶ)</button>
-      <button class="btn-secondary" onclick="showView('signupAuthView')">ተመለስ</button>
+      <button type="button" class="btn-primary" id="btnProceedToPhoto">ቀጥል (የፕሮፋይል ፎቶ)</button>
+      <button type="button" class="btn-secondary" id="btnBackToAuth">ተመለስ</button>
     </div>
 
     <!-- VIEW 5: SIGN UP - STEP 4 (Photo) -->
@@ -650,24 +649,24 @@
       </div>
 
       <div class="pic-options-grid">
-        <div class="pic-opt-btn" onclick="handlePhotoOption('Camera')">
+        <div class="pic-opt-btn" id="btnPhotoCamera">
           <div style="font-size: 22px; margin-bottom: 4px;">📸</div>
           <div style="font-size: 12px; font-weight: 600;">Take Photo</div>
         </div>
 
-        <div class="pic-opt-btn" onclick="handlePhotoOption('Gallery')">
+        <div class="pic-opt-btn" id="btnPhotoGallery">
           <div style="font-size: 22px; margin-bottom: 4px;">🖼️</div>
           <div style="font-size: 12px; font-weight: 600;">Choose from Gallery</div>
         </div>
       </div>
 
-      <button class="btn-primary" id="btnFinishRegistration" onclick="completeRegistration()">ምዝገባውን ጨርስ (Create Account)</button>
-      <button class="btn-secondary" onclick="showView('signupProfileView')">ተመለስ</button>
+      <button type="button" class="btn-primary" id="btnFinishRegistration">ምዝገባውን ጨርስ (Create Account)</button>
+      <button type="button" class="btn-secondary" id="btnBackToProfile">ተመለስ</button>
     </div>
 
   </div>
 
-  <!-- FIREBASE MODULE INTEGRATION WITH REAL SMS & AUTH -->
+  <!-- CONSOLIDATED ES MODULE SCRIPT -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { 
@@ -683,6 +682,7 @@
       getFirestore, 
       doc, 
       setDoc, 
+      getDoc,
       serverTimestamp 
     } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
@@ -698,7 +698,7 @@
       measurementId: "G-FZ0DEZJ6C2"
     };
 
-    // Initialize Firebase Services
+    // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const db = getFirestore(app);
@@ -707,165 +707,12 @@
 
     let confirmationResultObj = null;
 
-    // REAL FIREBASE SMS SENDER
-    window.triggerRealSmsOtp = async function(phoneNumber) {
-      try {
-        if (!window.recaptchaVerifier) {
-          window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
-            'size': 'invisible',
-            'callback': (response) => {}
-          });
-        }
-
-        let formattedPhone = phoneNumber;
-        if (phoneNumber.startsWith('0')) {
-          formattedPhone = '+251' + phoneNumber.substring(1);
-        }
-
-        const appVerifier = window.recaptchaVerifier;
-        confirmationResultObj = await signInWithPhoneNumber(auth, formattedPhone, appVerifier);
-        return { success: true, phone: formattedPhone };
-      } catch (error) {
-        console.error("Firebase SMS Error:", error);
-        return { success: false, message: error.message };
-      }
-    };
-
-    // REAL FIREBASE OTP VERIFIER
-    window.verifyRealSmsCode = async function(code) {
-      try {
-        if (!confirmationResultObj) return { success: false, message: "No SMS request found" };
-        const result = await confirmationResultObj.confirm(code);
-        return { success: true, user: result.user };
-      } catch (error) {
-        console.error("Firebase OTP Verification Error:", error);
-        return { success: false, message: error.message };
-      }
-    };
-
-    // LOGIN SUBMIT
-    window.handleLoginSubmit = async function(e) {
-      e.preventDefault();
-      const contactVal = document.getElementById('loginContactInput').value.trim();
-      const passVal = document.getElementById('loginPasswordInput').value;
-      const btn = document.getElementById('btnLoginSubmit');
-
-      const validation = validateContactInput(contactVal);
-      if (!validation.valid) {
-        alert('እባክዎን ትክክለኛ ስልክ ቁጥር ወይም ኢሜይል ያስገቡ!');
-        return;
-      }
-
-      let emailToAuth = contactVal;
-      if (validation.type === 'phone') {
-        const cleanPhone = contactVal.replace(/\+/g, '');
-        emailToAuth = `${cleanPhone}@muyatech.com`;
-      }
-
-      btn.innerText = "በመግባት ላይ...";
-      btn.disabled = true;
-
-      try {
-        const userCredential = await signInWithEmailAndPassword(auth, emailToAuth, passVal);
-        alert(`በተሳካ ሁኔታ ገብተዋል! እንኳን ደስ አለዎት።`);
-        // REDIRECT TO MULTI-PAGE DASHBOARD
-        window.location.href = (userRegistrationData.role === 'Craftsman') ? "craftsman-dashboard.html" : "client-dashboard.html";
-      } catch (error) {
-        console.error("Login error:", error);
-        alert(`የመግባት ስህተት፦ ${getAmharicErrorMessage(error.code)}`);
-      } finally {
-        btn.innerText = "ግባ (Login)";
-        btn.disabled = false;
-      }
-    };
-
-    // COMPLETE REGISTRATION
-    window.completeRegistration = async function() {
-      const btn = document.getElementById('btnFinishRegistration');
-      btn.innerText = "አካውንት እየተፈጠረ ነው...";
-      btn.disabled = true;
-
-      try {
-        let authEmail = userRegistrationData.contact;
-        if (userRegistrationData.contactType === 'phone') {
-          const cleanPhone = userRegistrationData.contact.replace(/\+/g, '');
-          authEmail = `${cleanPhone}@muyatech.com`;
-        }
-
-        const userCredential = await createUserWithEmailAndPassword(auth, authEmail, userRegistrationData.password);
-        const user = userCredential.user;
-
-        const userPayload = {
-          uid: user.uid,
-          role: userRegistrationData.role,
-          contact: userRegistrationData.contact,
-          contactType: userRegistrationData.contactType,
-          authEmail: authEmail,
-          firstName: userRegistrationData.firstName,
-          lastName: userRegistrationData.lastName,
-          region: userRegistrationData.region,
-          zone: userRegistrationData.zone,
-          woreda: userRegistrationData.woreda,
-          craftDetails: userRegistrationData.craftDetails || {},
-          createdAt: serverTimestamp()
-        };
-
-        await setDoc(doc(db, "users", user.uid), userPayload);
-
-        alert(`እንኳን ደስ አለዎት! የ${userRegistrationData.role} አካውንትዎ በተሳካ ሁኔታ ተፈጥሯል።`);
-        
-        // Multi-Page Redirection based on Role
-        if (userRegistrationData.role === 'Craftsman') {
-          window.location.href = "craftsman-dashboard.html";
-        } else {
-          window.location.href = "client-dashboard.html";
-        }
-      } catch (error) {
-        console.error("Registration error:", error);
-        alert(`የምዝገባ ስህተት፦ ${getAmharicErrorMessage(error.code)}`);
-      } finally {
-        btn.innerText = "ምዝገባውን ጨርስ (Create Account)";
-        btn.disabled = false;
-      }
-    };
-
-    window.handleSocial = async function(platform) {
-      if (platform === 'Google') {
-        try {
-          const result = await signInWithPopup(auth, googleProvider);
-          alert(`በGoogle በተሳካ ሁኔታ ገብተዋል: ${result.user.displayName}`);
-        } catch (error) {
-          alert(`በGoogle መግባት አልተቻለም፦ ${error.message}`);
-        }
-      } else {
-        alert(`በ${platform} ለመግባት አገልግሎቱ በቅርቡ ይከፈታል!`);
-      }
-    };
-
-    function getAmharicErrorMessage(code) {
-      switch (code) {
-        case 'auth/user-not-found':
-        case 'auth/wrong-password':
-        case 'auth/invalid-credential':
-          return 'የተሳሳተ ኢሜይል/ስልክ ወይም ፓስወርድ!';
-        case 'auth/email-already-in-use':
-          return 'ይህ ኢሜይል ወይም ስልክ ቁጥር አስቀድሞ ተመዝግቧል!';
-        case 'auth/weak-password':
-          return 'ፓስወርዱ በጣም ደካማ ነው፤ ቢያንስ 8 ፊደላት/ቁጥሮች ያድርጉት።';
-        default:
-          return 'እባክዎን ኢንተርኔትዎን አረጋግጠው ድጋሚ ይሞክሩ።';
-      }
-    }
-  </script>
-
-  <!-- UI & DOM LOGIC SCRIPT -->
-  <script>
-    let selectedRole = 'Client';
-
-    let userRegistrationData = {
+    // Global App State
+    const userRegistrationData = {
       role: 'Client',
       contact: '',
       contactType: '',
+      normalizedPhone: '',
       password: '',
       firstName: '',
       lastName: '',
@@ -915,6 +762,20 @@
       }
     };
 
+    // Helper: Phone Normalization (Standardize phone numbers to e.g. 251912345678)
+    function normalizePhoneNumber(phoneStr) {
+      let clean = phoneStr.replace(/\D/g, '');
+      if (clean.startsWith('0')) {
+        clean = '251' + clean.substring(1);
+      }
+      return clean;
+    }
+
+    function showView(viewId) {
+      document.querySelectorAll('.auth-view').forEach(v => v.classList.remove('active'));
+      document.getElementById(viewId).classList.add('active');
+    }
+
     function togglePasswordVisibility(inputId, btn) {
       const input = document.getElementById(inputId);
       if (input.type === 'password') {
@@ -926,13 +787,7 @@
       }
     }
 
-    function showView(viewId) {
-      document.querySelectorAll('.auth-view').forEach(v => v.classList.remove('active'));
-      document.getElementById(viewId).classList.add('active');
-    }
-
     function chooseRole(role) {
-      selectedRole = role;
       userRegistrationData.role = role;
       resetAuthAndForms();
       
@@ -966,11 +821,6 @@
       document.getElementById('btnSendOtp').style.display = 'block';
     }
 
-    function resetAndBackToRoles() {
-      resetAuthAndForms();
-      showView('signupRoleView');
-    }
-
     function validateContactInput(inputVal) {
       const trimmed = inputVal.trim();
       const ethiopianPhoneRegex = /^(?:\+251|0)[97]\d{8}$/;
@@ -1001,41 +851,33 @@
       userRegistrationData.contactType = validation.type;
 
       if (validation.type === 'phone') {
+        const cleanDigits = normalizePhoneNumber(userRegistrationData.contact);
+        userRegistrationData.normalizedPhone = '+' + cleanDigits;
         btnSend.innerText = "SMS እየተላከ ነው...";
         btnSend.disabled = true;
 
-        const res = await window.triggerRealSmsOtp(contactInput.value.trim());
-        if (res.success) {
+        try {
+          if (!window.recaptchaVerifier) {
+            window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
+              'size': 'invisible'
+            });
+          }
+
+          confirmationResultObj = await signInWithPhoneNumber(auth, userRegistrationData.normalizedPhone, window.recaptchaVerifier);
           document.getElementById('otpSection').style.display = 'block';
           btnSend.style.display = 'none';
-          alert(`የማረጋገጫ SMS (OTP) ወደ ${res.phone} ተልኳል!`);
-        } else {
-          alert(`SMS መላክ አልተቻለም፦ ${res.message}`);
+          alert(`የማረጋገጫ SMS (OTP) ወደ ${userRegistrationData.normalizedPhone} ተልኳል!`);
+        } catch (error) {
+          console.error("SMS error:", error);
+          alert(`SMS መላክ አልተቻለም፦ ${error.message}`);
           btnSend.innerText = "ኦቲፒ (OTP) ላክ";
           btnSend.disabled = false;
         }
       } else {
-        // Direct Flow for Email Sign up
         document.getElementById('otpSection').style.display = 'none';
         document.getElementById('btnSendOtp').style.display = 'none';
         document.getElementById('contactInput').disabled = true;
         document.getElementById('passwordSetupSection').style.display = 'block';
-      }
-    }
-
-    function handleOtpKey(event, prevId, nextId) {
-      if (event.key === 'Backspace') {
-        const currentInput = event.target;
-        if (currentInput.value === '' && prevId !== '') {
-          document.getElementById(prevId).focus();
-        }
-      }
-    }
-
-    function autoMoveOtp(currentId, nextId) {
-      const current = document.getElementById(currentId);
-      if (current.value.length >= 1 && nextId !== '') {
-        document.getElementById(nextId).focus();
       }
     }
 
@@ -1048,117 +890,268 @@
       const otpError = document.getElementById('otpError');
 
       if (enteredCode.length === 6) {
-        const res = await window.verifyRealSmsCode(enteredCode);
-        if (res.success) {
+        try {
+          if (!confirmationResultObj) return;
+          await confirmationResultObj.confirm(enteredCode);
           otpError.style.display = 'none';
           document.getElementById('otpSection').style.display = 'none';
           document.getElementById('contactInput').disabled = true;
           document.getElementById('passwordSetupSection').style.display = 'block';
-        } else {
+        } catch (error) {
+          console.error("OTP Error:", error);
           otpError.style.display = 'block';
         }
       }
     }
 
-    function validateAndProceedToProfile() {
-      const p1 = document.getElementById('newPassInput').value;
-      const p2 = document.getElementById('rePassInput').value;
-      const passError = document.getElementById('passError');
+    function handleLoginSubmit(e) {
+      e.preventDefault();
+      const contactVal = document.getElementById('loginContactInput').value.trim();
+      const passVal = document.getElementById('loginPasswordInput').value;
+      const btn = document.getElementById('btnLoginSubmit');
 
-      if (p1.length < 8 || p1 !== p2) {
-        passError.style.display = 'block';
+      const validation = validateContactInput(contactVal);
+      if (!validation.valid) {
+        alert('እባክዎን ትክክለኛ ስልክ ቁጥር ወይም ኢሜይል ያስገቡ!');
         return;
       }
 
-      passError.style.display = 'none';
-      userRegistrationData.password = p1;
-      showView('signupProfileView');
+      let emailToAuth = contactVal;
+      if (validation.type === 'phone') {
+        const cleanPhone = normalizePhoneNumber(contactVal);
+        emailToAuth = `${cleanPhone}@muyatech.com`;
+      }
+
+      btn.innerText = "በመግባት ላይ...";
+      btn.disabled = true;
+
+      signInWithEmailAndPassword(auth, emailToAuth, passVal)
+        .then(async (userCredential) => {
+          const userDoc = await getDoc(doc(db, "users", userCredential.user.uid));
+          let userRole = 'Client';
+          if (userDoc.exists() && userDoc.data().role) {
+            userRole = userDoc.data().role;
+          }
+          alert(`በተሳካ ሁኔታ ገብተዋል! እንኳን ደስ አለዎት።`);
+          window.location.href = (userRole === 'Craftsman') ? "craftsman-dashboard.html" : "client-dashboard.html";
+        })
+        .catch((error) => {
+          console.error("Login error:", error);
+          alert(`የመግባት ስህተት፦ ${getAmharicErrorMessage(error.code)}`);
+        })
+        .finally(() => {
+          btn.innerText = "ግባ (Login)";
+          btn.disabled = false;
+        });
     }
 
-    function validateAndProceedToPhoto() {
-      const firstName = document.getElementById('firstNameInput').value.trim();
-      const lastName = document.getElementById('lastNameInput').value.trim();
-      const region = document.getElementById('regionSelect').value;
-      const zone = document.getElementById('zoneSelect').value;
-      const woreda = document.getElementById('woredaSelect').value;
-      const profileError = document.getElementById('profileError');
+    async function completeRegistration() {
+      const btn = document.getElementById('btnFinishRegistration');
+      btn.innerText = "አካውንት እየተፈጠረ ነው...";
+      btn.disabled = true;
 
-      if (!firstName || !lastName || !region || !zone || !woreda) {
-        profileError.style.display = 'block';
-        return;
-      }
+      try {
+        let authEmail = userRegistrationData.contact;
+        if (userRegistrationData.contactType === 'phone') {
+          const cleanPhone = normalizePhoneNumber(userRegistrationData.contact);
+          authEmail = `${cleanPhone}@muyatech.com`;
+        }
 
-      profileError.style.display = 'none';
+        const userCredential = await createUserWithEmailAndPassword(auth, authEmail, userRegistrationData.password);
+        const user = userCredential.user;
 
-      userRegistrationData.firstName = firstName;
-      userRegistrationData.lastName = lastName;
-      userRegistrationData.region = region;
-      userRegistrationData.zone = zone;
-      userRegistrationData.woreda = woreda;
-
-      if (selectedRole === 'Craftsman') {
-        userRegistrationData.craftDetails = {
-          category: document.getElementById('craftCategorySelect').value,
-          experience: document.getElementById('craftExperienceSelect').value,
-          bio: document.getElementById('craftBioInput').value.trim(),
-          landmark: document.getElementById('craftLandmarkInput').value.trim()
+        const userPayload = {
+          uid: user.uid,
+          role: userRegistrationData.role,
+          contact: userRegistrationData.contact,
+          contactType: userRegistrationData.contactType,
+          authEmail: authEmail,
+          firstName: userRegistrationData.firstName,
+          lastName: userRegistrationData.lastName,
+          region: userRegistrationData.region,
+          zone: userRegistrationData.zone,
+          woreda: userRegistrationData.woreda,
+          craftDetails: userRegistrationData.craftDetails || {},
+          createdAt: serverTimestamp()
         };
-      }
 
-      showView('signupPhotoView');
+        await setDoc(doc(db, "users", user.uid), userPayload);
+
+        alert(`እንኳን ደስ አለዎት! የ${userRegistrationData.role} አካውንትዎ በተሳካ ሁኔታ ተፈጥሯል።`);
+        
+        window.location.href = (userRegistrationData.role === 'Craftsman') ? "craftsman-dashboard.html" : "client-dashboard.html";
+      } catch (error) {
+        console.error("Registration error:", error);
+        alert(`የምዝገባ ስህተት፦ ${getAmharicErrorMessage(error.code)}`);
+      } finally {
+        btn.innerText = "ምዝገባውን ጨርስ (Create Account)";
+        btn.disabled = false;
+      }
     }
 
-    function handleSocialSignUp(platform) {
+    async function handleSocial(platform) {
       if (platform === 'Google') {
-        handleSocial('Google');
+        try {
+          const result = await signInWithPopup(auth, googleProvider);
+          alert(`በGoogle በተሳካ ሁኔታ ገብተዋል: ${result.user.displayName}`);
+        } catch (error) {
+          alert(`በGoogle መግባት አልተቻለም፦ ${error.message}`);
+        }
       } else {
-        alert(`በ${platform} መመዝገብ በቅርቡ ይከፈታል!`);
+        alert(`በ${platform} ለመግባት አገልግሎቱ በቅርቡ ይከፈታል!`);
       }
     }
 
-    function handleRegionChange() {
-      const regionVal = document.getElementById('regionSelect').value;
+    function getAmharicErrorMessage(code) {
+      switch (code) {
+        case 'auth/user-not-found':
+        case 'auth/wrong-password':
+        case 'auth/invalid-credential':
+          return 'የተሳሳተ ኢሜይል/ስልክ ወይም ፓስወርድ!';
+        case 'auth/email-already-in-use':
+          return 'ይህ ኢሜይል ወይም ስልክ ቁጥር አስቀድሞ ተመዝግቧል!';
+        case 'auth/weak-password':
+          return 'ፓስወርዱ በጣም ደካማ ነው፤ ቢያንስ 8 ፊደላት/ቁጥሮች ያድርጉት።';
+        default:
+          return 'እባክዎን ኢንተርኔትዎን አረጋግጠው ድጋሚ ይሞክሩ።';
+      }
+    }
+
+    // Attach Event Listeners on DOM Loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      // Toggle Passwords
+      document.getElementById('btnToggleLoginPass').addEventListener('click', function() { togglePasswordVisibility('loginPasswordInput', this); });
+      document.getElementById('btnToggleNewPass').addEventListener('click', function() { togglePasswordVisibility('newPassInput', this); });
+      document.getElementById('btnToggleRePass').addEventListener('click', function() { togglePasswordVisibility('rePassInput', this); });
+
+      // Views Navigation Links
+      document.getElementById('linkToSignup').addEventListener('click', (e) => { e.preventDefault(); showView('signupRoleView'); });
+      document.getElementById('linkToLogin').addEventListener('click', (e) => { e.preventDefault(); showView('loginView'); });
+      document.getElementById('btnBackToRoles').addEventListener('click', () => { resetAuthAndForms(); showView('signupRoleView'); });
+      document.getElementById('btnBackToAuth').addEventListener('click', () => showView('signupAuthView'));
+      document.getElementById('btnBackToProfile').addEventListener('click', () => showView('signupProfileView'));
+
+      // Role Selection
+      document.getElementById('roleBtnClient').addEventListener('click', () => chooseRole('Client'));
+      document.getElementById('roleBtnCraftsman').addEventListener('click', () => chooseRole('Craftsman'));
+
+      // Auth & Forms Submission
+      document.getElementById('loginForm').addEventListener('submit', handleLoginSubmit);
+      document.getElementById('btnSendOtp').addEventListener('click', sendOTP);
+      document.getElementById('btnProceedToProfile').addEventListener('click', () => {
+        const p1 = document.getElementById('newPassInput').value;
+        const p2 = document.getElementById('rePassInput').value;
+        const passError = document.getElementById('passError');
+
+        if (p1.length < 8 || p1 !== p2) {
+          passError.style.display = 'block';
+          return;
+        }
+
+        passError.style.display = 'none';
+        userRegistrationData.password = p1;
+        showView('signupProfileView');
+      });
+
+      document.getElementById('btnProceedToPhoto').addEventListener('click', () => {
+        const firstName = document.getElementById('firstNameInput').value.trim();
+        const lastName = document.getElementById('lastNameInput').value.trim();
+        const region = document.getElementById('regionSelect').value;
+        const zone = document.getElementById('zoneSelect').value;
+        const woreda = document.getElementById('woredaSelect').value;
+        const profileError = document.getElementById('profileError');
+
+        if (!firstName || !lastName || !region || !zone || !woreda) {
+          profileError.style.display = 'block';
+          return;
+        }
+
+        profileError.style.display = 'none';
+
+        userRegistrationData.firstName = firstName;
+        userRegistrationData.lastName = lastName;
+        userRegistrationData.region = region;
+        userRegistrationData.zone = zone;
+        userRegistrationData.woreda = woreda;
+
+        if (userRegistrationData.role === 'Craftsman') {
+          userRegistrationData.craftDetails = {
+            category: document.getElementById('craftCategorySelect').value,
+            experience: document.getElementById('craftExperienceSelect').value,
+            bio: document.getElementById('craftBioInput').value.trim(),
+            landmark: document.getElementById('craftLandmarkInput').value.trim()
+          };
+        }
+
+        showView('signupPhotoView');
+      });
+
+      document.getElementById('btnFinishRegistration').addEventListener('click', completeRegistration);
+
+      // Social Auth
+      document.getElementById('btnLoginGoogle').addEventListener('click', () => handleSocial('Google'));
+      document.getElementById('btnLoginTelegram').addEventListener('click', () => handleSocial('Telegram'));
+      document.getElementById('btnSignupGoogle').addEventListener('click', () => handleSocial('Google'));
+      document.getElementById('btnSignupTelegram').addEventListener('click', () => handleSocial('Telegram'));
+
+      // OTP Box Auto Focus
+      for (let i = 1; i <= 6; i++) {
+        const box = document.getElementById(`otp${i}`);
+        box.addEventListener('input', () => {
+          if (box.value.length >= 1 && i < 6) {
+            document.getElementById(`otp${i + 1}`).focus();
+          }
+          if (i === 6) verifyOTP();
+        });
+        box.addEventListener('keydown', (e) => {
+          if (e.key === 'Backspace' && box.value === '' && i > 1) {
+            document.getElementById(`otp${i - 1}`).focus();
+          }
+        });
+      }
+
+      // Region/Zone Dropdown Logic
+      const regionSelect = document.getElementById('regionSelect');
       const zoneSelect = document.getElementById('zoneSelect');
       const woredaSelect = document.getElementById('woredaSelect');
 
-      zoneSelect.innerHTML = '<option value="">-- ዞን / ክፍለ ከተማ ይምረጡ --</option>';
-      woredaSelect.innerHTML = '<option value="">-- አስቀድመው ዞን ይምረጡ --</option>';
-      woredaSelect.disabled = true;
-
-      if (regionVal && locationData[regionVal]) {
-        zoneSelect.disabled = false;
-        const zones = locationData[regionVal].zones;
-        for (let key in zones) {
-          zoneSelect.innerHTML += `<option value="${key}">${zones[key].name}</option>`;
-        }
-      } else {
-        zoneSelect.disabled = true;
-      }
-    }
-
-    function handleZoneChange() {
-      const regionVal = document.getElementById('regionSelect').value;
-      const zoneVal = document.getElementById('zoneSelect').value;
-      const woredaSelect = document.getElementById('woredaSelect');
-
-      woredaSelect.innerHTML = '<option value="">-- ወረዳ / ከተማ ይምረጡ --</option>';
-
-      if (regionVal && zoneVal && locationData[regionVal].zones[zoneVal]) {
-        woredaSelect.disabled = false;
-        const woredas = locationData[regionVal].zones[zoneVal].woredas;
-        woredas.forEach(w => {
-          woredaSelect.innerHTML += `<option value="${w}">${w}</option>`;
-        });
-      } else {
+      regionSelect.addEventListener('change', () => {
+        const regionVal = regionSelect.value;
+        zoneSelect.innerHTML = '<option value="">-- ዞን / ክፍለ ከተማ ይምረጡ --</option>';
+        woredaSelect.innerHTML = '<option value="">-- አስቀድመው ዞን ይምረጡ --</option>';
         woredaSelect.disabled = true;
-      }
-    }
 
-    function handlePhotoOption(type) {
-      alert(`የ${type} አማራጭ ተመርጧል!`);
-    }
+        if (regionVal && locationData[regionVal]) {
+          zoneSelect.disabled = false;
+          const zones = locationData[regionVal].zones;
+          for (let key in zones) {
+            zoneSelect.innerHTML += `<option value="${key}">${zones[key].name}</option>`;
+          }
+        } else {
+          zoneSelect.disabled = true;
+        }
+      });
+
+      zoneSelect.addEventListener('change', () => {
+        const regionVal = regionSelect.value;
+        const zoneVal = zoneSelect.value;
+        woredaSelect.innerHTML = '<option value="">-- ወረዳ / ከተማ ይምረጡ --</option>';
+
+        if (regionVal && zoneVal && locationData[regionVal].zones[zoneVal]) {
+          woredaSelect.disabled = false;
+          const woredas = locationData[regionVal].zones[zoneVal].woredas;
+          woredas.forEach(w => {
+            woredaSelect.innerHTML += `<option value="${w}">${w}</option>`;
+          });
+        } else {
+          woredaSelect.disabled = true;
+        }
+      });
+
+      document.getElementById('btnPhotoCamera').addEventListener('click', () => alert("የCamera መዳረሻ አማራጭ ተመርጧል!"));
+      document.getElementById('btnPhotoGallery').addEventListener('click', () => alert("የGallery መዳረሻ አማራጭ ተመርጧል!"));
+    });
   </script>
 
 </body>
 </html>
-
